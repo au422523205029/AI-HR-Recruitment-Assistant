@@ -86,13 +86,20 @@ if st.session_state.results:
     selected = st.selectbox("Candidate", [r.candidate_name for r in ranked])
     if st.button("Generate Interview Questions"):
         with st.spinner("Generating questions with Gemini..."):
-            st.session_state.questions = generate_interview_questions(
-                selected,
-                job,
-                st.session_state.evidence.get(selected, []),
-                st.session_state.results[selected],
-            )
+            selected_result = next(
+    (r for r in ranked if r.candidate_name == selected),
+    None
+)
 
+if selected_result is None:
+    st.error("Selected candidate result could not be found.")
+else:
+    st.session_state.questions = generate_interview_questions(
+        selected,
+        job,
+        st.session_state.evidence.get(selected, []),
+        selected_result,
+    )
     if "questions" in st.session_state:
         q = st.session_state.questions
         for i, question in enumerate(q.questions, 1):
