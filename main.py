@@ -89,7 +89,7 @@ if st.session_state.results:
             st.session_state.questions = generate_interview_questions(
                 selected,
                 job,
-                st.session_state.evidence[selected],
+                st.session_state.evidence.get(selected, []),
                 st.session_state.results[selected],
             )
 
