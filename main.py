@@ -79,7 +79,7 @@ if st.session_state.results:
                     st.write("• " + g)
 
             with st.expander("Retrieved evidence"):
-                for e in st.session_state.evidence[r.candidate_name]:
+              for e in st.session_state.evidence.get(r.candidate_name, []):
                     st.info(e)
 
     st.subheader("Interview Question Generator")
