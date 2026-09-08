@@ -8,7 +8,7 @@ from schemas import CandidateScore, InterviewQuestions
 
 def llm():
     return ChatGoogleGenerativeAI(
-        model=os.getenv("GEMINI_MODEL", "gemini-2.5-flash"),
+        model=os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite"),
         temperature=0.1,
         max_retries=2,
     )
