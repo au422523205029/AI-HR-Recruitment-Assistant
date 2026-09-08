@@ -1,9 +1,9 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-from .utils import extract_pdf_text,candidate_name_from_filename
-from .rag import build_vector_store,retrieve_candidate_evidence
-from .agents import screen_candidate,generate_interview_questions
+from utils import extract_pdf_text,candidate_name_from_filename
+from rag import build_vector_store,retrieve_candidate_evidence
+from agents import screen_candidate,generate_interview_questions
 
 load_dotenv()
 st.set_page_config(page_title="AI HR Recruitment Assistant",page_icon="🤖",layout="wide")
