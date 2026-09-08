@@ -1,5 +1,5 @@
-from pydantic import BaseModel, Field
 from typing import List
+from pydantic import BaseModel, Field
 
 class CandidateScore(BaseModel):
     candidate_name: str
